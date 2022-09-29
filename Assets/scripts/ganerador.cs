@@ -18,11 +18,12 @@ public class ganerador : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         y = FindObjectOfType<rayito>().cosito.transform.position.y + 2;
-        pos1 = new Vector3(5.32f, y, 0);
+         pos1 = new Vector3(5.32f, y, 0);
         cambio();
+        
     }
     public void nuevapieza()
     {
@@ -41,6 +42,7 @@ public class ganerador : MonoBehaviour
         }
         else
         {
+            
             gameObject.transform.position = new Vector3(5.32f, y, 0);
             return false;
         }

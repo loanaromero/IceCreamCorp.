@@ -6,12 +6,19 @@ using System.Linq;
 
 public class bolitas : MonoBehaviour
 {
+    
     public float r;
     public Vector3 cambiar = Vector3.right;
-    
+    public GameObject efeto;
+    public ContactPoint contato;
+    public Quaternion rot;
+    public Vector3 pos;
+  
+
     // Start is called before the first frame update
     void Start()
     {
+        
         r = Random.Range(170, 500);
        
         gameObject.tag = "nuevabochita";
@@ -31,14 +38,17 @@ public class bolitas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             if (gameObject.CompareTag("nuevabochita"))
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * 700);
+                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
                 gameObject.GetComponent<Rigidbody>().velocity=new Vector3(0,0,0);
             }
         }
+
+      
     }
   
     
@@ -51,25 +61,45 @@ public class bolitas : MonoBehaviour
         if (collision.gameObject.CompareTag("conito") ||  collision.gameObject.CompareTag("bochitas"))
         {
 
-          
-            gameObject.tag = "bochitas";
-            /*gameObject.AddComponent<HingeJoint>();
-            gameObject.GetComponent<HingeJoint>().connectedBody = collision.rigidbody;
-            gameObject.GetComponent<HingeJoint>().connectedArticulationBody = collision.articulationBody;*/
-            FindObjectOfType<ganerador>().cambio();
-            transform.SetParent(collision.gameObject.transform, true);
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            FindObjectOfType<ganerador>().nuevapieza();
-            collisonOccured = true;
+
+            contato = collision.contacts[0];
+            rot = Quaternion.FromToRotation(Vector3.up, contato.normal);
+            pos = contato.point;
+            Instantiate(efeto, pos, rot);
+                
+
+                gameObject.tag = "bochitas";
+                gameObject.AddComponent<HingeJoint>();
+                gameObject.GetComponent<HingeJoint>().connectedBody = collision.rigidbody;
+                if (FindObjectOfType<timer>().time > 50)
+                {
+                    gameObject.GetComponent<HingeJoint>().breakForce = 2000;
+
+                }
+                else
+                {
+                    gameObject.GetComponent<HingeJoint>().breakForce = 1000;
+
+                }
+                gameObject.GetComponent<HingeJoint>().useLimits = true;
+                FindObjectOfType<ganerador>().cambio();
+                FindObjectOfType<diniero>().plata += 1;
+
+                FindObjectOfType<ganerador>().nuevapieza();
+                collisonOccured = true;
+            
         }
 
         if (collision.gameObject.CompareTag("pisito"))
         {
             Destroy(this.gameObject);
             FindObjectOfType<ganerador>().nuevapieza();
+
         }
 
-     
+        
 
     }
+
+    
 }

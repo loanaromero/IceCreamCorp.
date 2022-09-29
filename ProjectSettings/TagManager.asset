@@ -8,6 +8,9 @@ TagManager:
   - pisito
   - bochitas
   - nuevabochita
+  - juego
+  - fin
+  - efeto
   layers:
   - Default
   - TransparentFX

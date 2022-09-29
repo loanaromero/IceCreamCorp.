@@ -8,10 +8,14 @@ public class rayito : MonoBehaviour
     public Transform lasercito;
     public Text puntaje;
     public GameObject cosito;
+    public float pos;
+    public int pos1;
     // Start is called before the first frame update
     void Start()
     {
-       
+        
+        pos = lasercito.transform.position.y;
+         pos1 = (int)pos;
     }
 
     // Update is called once per frame
@@ -34,10 +38,16 @@ public class rayito : MonoBehaviour
             else
             {
                 baja();
+                
             }
-            
+
         }
-       // puntaje.text = lasercito.position.y.ToString("0");
+        else
+        {
+            baja();
+        }
+        pos = lasercito.transform.position.y;
+         pos1 = (int)pos;
     }
     public void altura()
     {

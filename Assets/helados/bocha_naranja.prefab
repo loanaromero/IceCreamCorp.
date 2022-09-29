@@ -111,6 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r: 0
   cambiar: {x: -1, y: 0, z: 0}
+  efeto: {fileID: 2280867763414040830, guid: d406eeb9a92069e4cb4778b95b49ad53, type: 3}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!54 &1724846056476884879
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,5 +128,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
