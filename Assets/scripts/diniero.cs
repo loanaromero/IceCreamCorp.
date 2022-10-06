@@ -6,20 +6,23 @@ using UnityEngine.UI;
 public class diniero : MonoBehaviour
 {
     public int plata;
+    //public int platatotal=0;
     public bool masdinero;
     public Text puntaje;
 
     void Update()
     {
 
-        Debug.Log(plata);
+        
         
        // puntaje.text = plata.ToString();
     }
 
     public void platafinal()
     {
-       // plata=plata * 10;
+        // plata=plata * 10;
+        //platatotal = platatotal + plata;
         puntaje.text = plata.ToString();
+       // Debug.Log("final "+ platatotal);
     }
 }

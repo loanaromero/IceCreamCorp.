@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87be3f2ad208d345a0e4374546bd6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 0
+  ItemID: 3
   PirceTxt: {fileID: 1446062854}
   QuantityTxt: {fileID: 896005284}
   ShopManager: {fileID: 1550322988}
@@ -4513,6 +4513,7 @@ MonoBehaviour:
   slidetiempo: {fileID: 44403955}
   tiempojuego: 10
   time: 0
+  var: 0
   parartiempo: 0
 --- !u!114 &1540752743
 MonoBehaviour:
@@ -4596,6 +4597,7 @@ MonoBehaviour:
   tienda: {fileID: 1130098468}
   laseer: {fileID: 1695460020}
   guille: 0
+  platatotal: 0
 --- !u!1 &1550322988
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,7 +4641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae968017dfde234482bcdffbae71bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 100
+  coins: 0
   CoinsTXT: {fileID: 898708090}
 --- !u!1001 &1615956700
 PrefabInstance:
@@ -5076,7 +5078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87be3f2ad208d345a0e4374546bd6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 0
+  ItemID: 1
   PirceTxt: {fileID: 1160853444}
   QuantityTxt: {fileID: 992311288}
   ShopManager: {fileID: 1550322988}
@@ -5228,7 +5230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87be3f2ad208d345a0e4374546bd6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 0
+  ItemID: 2
   PirceTxt: {fileID: 761350572}
   QuantityTxt: {fileID: 1098802192}
   ShopManager: {fileID: 1550322988}

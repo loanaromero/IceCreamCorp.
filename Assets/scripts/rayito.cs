@@ -26,7 +26,7 @@ public class rayito : MonoBehaviour
         if(Physics.Raycast(transform.position,Vector3.right,out hit, 60f))
         {
             
-            if (hit.transform.tag == "bochitas"|| hit.transform.tag=="conito")
+            if (hit.transform.tag == "bochitas"|| hit.transform.tag=="conito"||hit.transform.tag=="dorada")
             {
                 Debug.DrawRay(transform.position, Vector3.right * 10f * Time.deltaTime, Color.red);
                 

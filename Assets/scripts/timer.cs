@@ -9,6 +9,7 @@ public class timer : MonoBehaviour
     public Slider slidetiempo;
     public float tiempojuego;
     public float time;
+    public bool var = false;
     
 
 
@@ -43,11 +44,12 @@ public class timer : MonoBehaviour
 
         
         
-            if (time <= 0)
+            if (time <= 0 && var==false)
             {
               parartiempo = true;
        
                 GameOver();
+            Debug.Log("me ejecuto");
 
             }
 
@@ -61,6 +63,7 @@ public class timer : MonoBehaviour
 
     void GameOver()
     {
+        var = true;
         FindObjectOfType<GameManager>().derrota();
     }
 

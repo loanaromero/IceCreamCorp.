@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject tienda;
     public GameObject laseer;
     public bool guille = false;
+    public int platatotal = 0;
     
     
     // Start is called before the first frame update
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
     }
     public void empezar()
     {
+        FindObjectOfType<timer>().var = false;
+        FindObjectOfType<diniero>().plata = 0;
         menupcipal.SetActive(false);
         juego.SetActive(true);
         if (guille == true)
@@ -57,18 +60,23 @@ public class GameManager : MonoBehaviour
 
    public void derrota()
     {
+        
         FindObjectOfType<diniero>().platafinal();
+        platatotal = platatotal + FindObjectOfType<diniero>().plata;
+        Debug.Log("saldo " + platatotal); 
         juego.SetActive(false);
         fin.SetActive(true);
         laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);
         DestroyWithTag1("nuevabochita");
         DestroyWithTag2("efeto");
+        DestroyWithTag3("dorada");
     }
     public void reset()
     {
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        FindObjectOfType<timer>().var = false;
+        FindObjectOfType<diniero>().plata = 0;
         FindObjectOfType<timer>().time = 60;
         FindObjectOfType<timer>().parartiempo= false;
         fin.SetActive(false);
@@ -102,6 +110,15 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] destroyObject;
         destroyObject = GameObject.FindGameObjectsWithTag("efeto");
+        foreach (GameObject oneObject in destroyObject)
+            Destroy(oneObject);
+
+
+    }
+    void DestroyWithTag3(string dorada)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag("dorada");
         foreach (GameObject oneObject in destroyObject)
             Destroy(oneObject);
 

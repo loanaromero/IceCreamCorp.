@@ -14,7 +14,8 @@ public class ShopManagerScript : MonoBehaviour
 
     void Start()
     {
-        CoinsTXT.text = "Coins:" + coins.ToString();
+        coins = FindObjectOfType<GameManager>().platatotal;
+        CoinsTXT.text = "platita: " + coins.ToString();
 
         //ID's
         shopItems[1, 1] = 1;
@@ -36,16 +37,20 @@ public class ShopManagerScript : MonoBehaviour
 
     }
 
-   
+    private void FixedUpdate()
+    {
+        coins = FindObjectOfType<GameManager>().platatotal;
+        CoinsTXT.text = "platita: " + coins.ToString();
+    }
     public void Buy()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
         if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
         {
-            coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
+            FindObjectOfType<GameManager>().platatotal -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
             shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
-            CoinsTXT.text = "Coins:" + coins.ToString();
+            CoinsTXT.text = "platita: " + coins.ToString();
             ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
 
         }
