@@ -25,11 +25,11 @@ public class bolitas : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up *500);
         if (FindObjectOfType<ganerador>().cambio()==true)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0, 0) * r);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0, 0) * r);
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0, 0) * r);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0, 0) * r);
         }
        
         
@@ -58,7 +58,7 @@ public class bolitas : MonoBehaviour
     {
         if (collisonOccured)
             return;
-        if (collision.gameObject.CompareTag("conito") ||  collision.gameObject.CompareTag("bochitas"))
+        if (collision.gameObject.CompareTag("conito") ||  collision.gameObject.CompareTag("bochitas") || collision.gameObject.CompareTag("dorada"))
         {
 
 
@@ -83,7 +83,7 @@ public class bolitas : MonoBehaviour
                 }
                 gameObject.GetComponent<HingeJoint>().useLimits = true;
                 FindObjectOfType<ganerador>().cambio();
-                FindObjectOfType<diniero>().plata += 1;
+                FindObjectOfType<diniero>().plata += 10;
 
                 FindObjectOfType<ganerador>().nuevapieza();
                 collisonOccured = true;

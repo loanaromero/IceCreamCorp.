@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class diniero : MonoBehaviour
 {
-    public int plata=0;
+    public int plata;
     public bool masdinero;
     public Text puntaje;
 
     void Update()
     {
-       
-       
-        if (FindObjectOfType<timer>().parartiempo==true)
-        {
-            plata=plata * 10;
-        }
+
+        Debug.Log(plata);
+        
+       // puntaje.text = plata.ToString();
+    }
+
+    public void platafinal()
+    {
+       // plata=plata * 10;
         puntaje.text = plata.ToString();
     }
 }

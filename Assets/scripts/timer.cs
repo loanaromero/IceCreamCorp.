@@ -25,8 +25,14 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (FindObjectOfType<GameManager>().juego.activeInHierarchy == true)
+        {
+            time -= 1 * Time.deltaTime;
+        }
+            
         
-        time -= 1 * Time.deltaTime;
+        
         
        
 
@@ -40,8 +46,7 @@ public class timer : MonoBehaviour
             if (time <= 0)
             {
               parartiempo = true;
-              
-            //time = tiempojuego;
+       
                 GameOver();
 
             }

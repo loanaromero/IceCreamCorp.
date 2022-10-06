@@ -11,6 +11,8 @@ TagManager:
   - juego
   - fin
   - efeto
+  - Event
+  - dorada
   layers:
   - Default
   - TransparentFX

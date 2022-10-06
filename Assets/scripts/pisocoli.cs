@@ -11,10 +11,19 @@ public class pisocoli : MonoBehaviour
             return;
         if (collision.gameObject.CompareTag("bochitas"))
         {
-            FindObjectOfType<diniero>().plata-=1;
+            FindObjectOfType<diniero>().plata-=10;
             
             Destroy(collision.gameObject);
             
+
+
+        }
+        if (collision.gameObject.CompareTag("dorada"))
+        {
+            FindObjectOfType<diniero>().plata -= 50;
+
+            Destroy(collision.gameObject);
+
 
 
         }

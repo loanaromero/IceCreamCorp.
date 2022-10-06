@@ -34,7 +34,7 @@ public class movcam : MonoBehaviour
             
 
         }
-        else
+       /* else
         {
             if (Camera.main.orthographicSize <=9)
             {
@@ -45,15 +45,15 @@ public class movcam : MonoBehaviour
 
 
             }
-        }
+        }*/
        if(FindObjectOfType<rayito>().pos <= 10)
         {
             if (Camera.main.orthographicSize >= 10)
             {
-                Camera.main.orthographicSize -= 0.2f;
+                Camera.main.orthographicSize -= 0.05f;
                 int x = 10;
                 Camera.main.transform.rotation = Quaternion.Euler(x, 0, 0);
-                Camera.main.transform.LeanMoveLocal(new Vector3(0, 10, -3), 1);
+                Camera.main.transform.LeanMoveLocal(new Vector3(0, 10, -3), 0.5f);
 
 
             }

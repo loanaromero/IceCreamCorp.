@@ -5,7 +5,7 @@ using UnityEngine;
 public class bomba : MonoBehaviour
 {
     public GameObject bombita;
-    public float poder=10.0f;
+    public float poder=5.0f;
     public float radio = 5.0f;
     public float arribafuerza = 1.0f;
 
@@ -22,11 +22,11 @@ public class bomba : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
         if (FindObjectOfType<ganerador>().cambio() == true)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0, 0) * r);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0, 0) * r);
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0, 0) * r);
+            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0, 0) * r);
         }
 
 
@@ -51,6 +51,8 @@ public class bomba : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         detonar();
+       
+       
     }
     void detonar()
     {

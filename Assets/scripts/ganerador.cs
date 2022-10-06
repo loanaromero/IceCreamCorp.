@@ -6,22 +6,23 @@ public class ganerador : MonoBehaviour
 {
     public GameObject[] piezas;
     public Vector3 pos1;
-    public float y; 
-
+    public float y;
+    public float x;
     // Start is called before the first frame update
     void Start()
     {
         nuevapieza();
         cambio();
        
-        pos1 = new Vector3(5.32f, y, 0);
+      pos1 = new Vector3(5.32f, y, 0);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         y = FindObjectOfType<rayito>().cosito.transform.position.y + 2;
-         pos1 = new Vector3(5.32f, y, 0);
+         pos1 = new Vector3(-5.32f, y, 0);
+        x = Random.Range(-10, 10);
         cambio();
         
     }
@@ -35,7 +36,7 @@ public class ganerador : MonoBehaviour
     }
     public bool cambio()
     {
-        if (gameObject.transform.position==pos1)
+        if (gameObject.transform.position.x<=x)
         {
             gameObject.transform.position = new Vector3(-5.32f, y, 0);
             return true;

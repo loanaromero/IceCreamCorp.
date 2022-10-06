@@ -8,13 +8,17 @@ public class GameManager : MonoBehaviour
     public GameObject juego;
     public GameObject fin;
     public GameObject pausamenu;
+    public GameObject menupcipal;
+    public GameObject tienda;
     public GameObject laseer;
+    public bool guille = false;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        juego.SetActive(true);
+        juego.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,8 +26,38 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void volvermenu()
+    {
+        guille = true;
+        FindObjectOfType<timer>().time = 60;
+        FindObjectOfType<timer>().parartiempo = false;
+        DestroyWithTag("bochitas");
+        fin.SetActive(false);
+        juego.SetActive(false);
+        tienda.SetActive(false);
+
+        menupcipal.SetActive(true);
+    }
+    public void tiendaabrir()
+    {
+        menupcipal.SetActive(false);
+        tienda.SetActive(true);
+    }
+    public void empezar()
+    {
+        menupcipal.SetActive(false);
+        juego.SetActive(true);
+        if (guille == true)
+        {
+            FindObjectOfType<ganerador>().nuevapieza();
+            guille = false;
+        }
+        
+    }
+
    public void derrota()
     {
+        FindObjectOfType<diniero>().platafinal();
         juego.SetActive(false);
         fin.SetActive(true);
         laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);

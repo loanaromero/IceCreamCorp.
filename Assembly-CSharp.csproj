@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.32f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\ShopManagerScript.cs" />
     <Compile Include="Assets\scripts\ganerador.cs" />
     <Compile Include="Assets\scripts\bomba.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\scripts\bolitas.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
+    <Compile Include="Assets\scripts\ButtonInfo.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
     <Compile Include="Assets\scripts\rayito.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
+    <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\diniero.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
@@ -94,7 +97,7 @@
     <Compile Include="Assets\scripts\timer.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\scripts\GameManager.cs" />
+    <Compile Include="Assets\scripts\dorada.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LeanTween\ReadMe.txt" />

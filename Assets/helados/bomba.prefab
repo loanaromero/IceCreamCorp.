@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4656793277870772080
+--- !u!1 &8821332277033599501
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5470625037396104650}
-  - component: {fileID: 8954365427032873583}
-  - component: {fileID: 6602484449261498021}
-  - component: {fileID: 1004505929607270649}
-  - component: {fileID: 2604343884732080995}
-  - component: {fileID: 8238388653171875967}
+  - component: {fileID: 2321624298142213767}
+  - component: {fileID: 1095955222144295030}
+  - component: {fileID: 2988822616015208291}
+  - component: {fileID: 6287177595021076152}
+  - component: {fileID: 5581207659902518881}
+  - component: {fileID: 138472116509648459}
   m_Layer: 0
   m_Name: bomba
   m_TagString: Untagged
@@ -21,35 +21,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5470625037396104650
+--- !u!4 &2321624298142213767
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 199.86209, y: 752.5261, z: -1502.9764}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 8821332277033599501}
+  m_LocalRotation: {x: 0.24314459, y: -0, z: -0, w: 0.9699901}
+  m_LocalPosition: {x: -2.2751546, y: 3.5542245, z: -0.5825882}
+  m_LocalScale: {x: 1.1426, y: 1.1426, z: 1.1426}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8954365427032873583
+  m_LocalEulerAnglesHint: {x: 28.144, y: 0, z: 0}
+--- !u!33 &1095955222144295030
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
-  m_Mesh: {fileID: -1550514412580984892, guid: b37a30dfd6d71884d8d80f428f9c8047, type: 3}
---- !u!23 &6602484449261498021
+  m_GameObject: {fileID: 8821332277033599501}
+  m_Mesh: {fileID: -8678823145569952518, guid: 457d8946c0d57324abf218cc51764cb9, type: 3}
+--- !u!23 &2988822616015208291
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
+  m_GameObject: {fileID: 8821332277033599501}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,13 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1004505929607270649
+--- !u!54 &6287177595021076152
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
+  m_GameObject: {fileID: 8821332277033599501}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -100,33 +100,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &2604343884732080995
+--- !u!135 &5581207659902518881
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
+  m_GameObject: {fileID: 8821332277033599501}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.98832893
   m_Center: {x: 0.00000011920929, y: -0.062181473, z: 0}
---- !u!114 &8238388653171875967
+--- !u!114 &138472116509648459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656793277870772080}
+  m_GameObject: {fileID: 8821332277033599501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ea17b1bce79399429d6dfa96f7f4f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombita: {fileID: 4656793277870772080}
-  poder: 50
+  bombita: {fileID: 8821332277033599501}
+  poder: 40
   radio: 5
   arribafuerza: 1
   r: 0
