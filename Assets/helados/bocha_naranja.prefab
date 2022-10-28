@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r: 0
   cambiar: {x: -1, y: 0, z: 0}
-  efeto: {fileID: 2280867763414040830, guid: d406eeb9a92069e4cb4778b95b49ad53, type: 3}
+  efeto: {fileID: 7319737459491991534, guid: f969ca7bfa3717c45ac03cb32aaed5ae, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
   pos: {x: 0, y: 0, z: 0}
 --- !u!54 &1724846056476884879

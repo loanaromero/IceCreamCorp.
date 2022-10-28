@@ -7,20 +7,23 @@ public class movcam : MonoBehaviour
 {
     public Transform destino;
     public GameObject juego;
-    
+    public Transform camara;
   
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        camara = Camera.main.transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        if (FindObjectOfType<rayito>().pos>=10)
+        // int y = FindObjectOfType<rayito>().pos1 + 7;
+        /*float y = FindObjectOfType<rayito>().pos + 3;
+        Camera.main.transform.LeanMoveLocal(new Vector3(0, y, -20), 1f);
+        */
+        if (FindObjectOfType<rayito>().pos>10)
         {
             if (Camera.main.orthographicSize <= 16)
             {
@@ -46,9 +49,9 @@ public class movcam : MonoBehaviour
 
             }
         }*/
-       if(FindObjectOfType<rayito>().pos <= 10)
+       if(FindObjectOfType<rayito>().pos < 10)
         {
-            if (Camera.main.orthographicSize >= 10)
+            if (Camera.main.orthographicSize >= 9.95)
             {
                 Camera.main.orthographicSize -= 0.05f;
                 int x = 10;
@@ -57,27 +60,22 @@ public class movcam : MonoBehaviour
 
 
             }
+            
         }
 
-        if (FindObjectOfType<rayito>().pos >= 20)
+        if (FindObjectOfType<rayito>().pos >= 20 /*&& FindObjectOfType<rayito>().pos <= 29*/)
         {
-            Camera.main.transform.LeanMoveLocal(new Vector3(0, 40, -20), 2);
-           /* if (Camera.main.orthographicSize <= 16)
-            {
-                Camera.main.orthographicSize += 0.05f;
-                int x = 20;
-                Camera.main.transform.rotation = Quaternion.Euler(x, 0, 0);
-              
-
-
-            }*/
+            
+            int y = FindObjectOfType<rayito>().pos1+7;
+            Camera.main.transform.LeanMoveLocal(new Vector3(0, y, -20), 1f);
+          
+           
+           
         }
+
+
+
     } 
 
-    public void Menu()
-    {
-        Camera.main.transform.LeanMoveLocal(new Vector3(destino.position.x, destino.position.y,-28.4f), 5).setEaseOutQuart();
-        juego.SetActive(false);
-        //Camera.main.transform.position = new Vector2(destino.position.x,destino.position.y);
-    }
+   
 }

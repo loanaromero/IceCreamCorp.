@@ -9,6 +9,12 @@ public class bomba : MonoBehaviour
     public float radio = 5.0f;
     public float arribafuerza = 1.0f;
 
+
+    public GameObject efeto;
+    public ContactPoint contato;
+    public Quaternion rot;
+    public Vector3 pos;
+
     public float r;
     public Vector3 cambiar = Vector3.right;
 
@@ -50,7 +56,27 @@ public class bomba : MonoBehaviour
  
     public void OnCollisionEnter(Collision collision)
     {
-        detonar();
+        if (collision.gameObject.CompareTag("bochitas")||collision.gameObject.CompareTag("conito")|| collision.gameObject.CompareTag("dorada"))
+        {
+
+            detonar();
+            if (!collision.gameObject.CompareTag("conito"))
+            {
+                contato = collision.contacts[0];
+                rot = Quaternion.FromToRotation(Vector3.up, contato.normal);
+                pos = contato.point;
+                Instantiate(efeto, pos, rot);
+                Handheld.Vibrate();
+                Destroy(collision.gameObject);
+            }
+            
+        }
+        else
+        {
+            Destroy(gameObject);
+            FindObjectOfType<ganerador>().nuevapieza();
+        }
+        
        
        
     }
@@ -64,6 +90,7 @@ public class bomba : MonoBehaviour
             if (rb!=null)
             {
                 rb.AddExplosionForce(poder, explosionposicion, radio, arribafuerza, ForceMode.Impulse);
+                SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.bomba);
             }
             
 

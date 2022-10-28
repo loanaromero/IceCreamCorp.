@@ -93,6 +93,7 @@ m_PackageAssets:
         - 1.17.0
         - 1.17.1
         - 1.17.2
+        - 1.17.6
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -112,6 +113,7 @@ m_PackageAssets:
         - 1.17.0
         - 1.17.1
         - 1.17.2
+        - 1.17.6
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -218,6 +220,7 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
+        - 3.0.16
         compatible:
         - 1.0.2
         - 1.0.6
@@ -250,6 +253,7 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
+        - 3.0.16
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -589,9 +593,11 @@ m_PackageAssets:
         - 1.4.1
         - 1.4.2
         - 1.4.3
+        - 1.4.4
         - 2.0.0
         - 2.0.1
         - 2.0.2
+        - 2.1.0
         compatible:
         - 1.0.0-preview.4
         - 1.0.0-preview.5
@@ -625,9 +631,11 @@ m_PackageAssets:
         - 1.4.1
         - 1.4.2
         - 1.4.3
+        - 1.4.4
         - 2.0.0
         - 2.0.1
         - 2.0.2
+        - 2.1.0
         verified: 2.0.2
       dependencies:
       - name: com.unity.modules.androidjni

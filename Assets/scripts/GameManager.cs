@@ -3,49 +3,94 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
+    //pantallas
     public GameObject juego;
     public GameObject fin;
     public GameObject pausamenu;
     public GameObject menupcipal;
     public GameObject tienda;
     public GameObject laseer;
+    public GameObject config;
+
+    //conos
+    public GameObject cono1;
+    public GameObject cono2;
+    public GameObject cono3;
+    public GameObject cono4;
+    public GameObject cono5;
+
+    //activar botones
+    public GameObject botonselec1;
+    public GameObject botonselec2;
+    public GameObject botonselec3;
+    public GameObject botonselec4;
+
+    //txt
+    public GameObject txt1;
+    public GameObject txt2;
+    public GameObject txt3;
+    public GameObject txt4;
+
+    //movimiento botones menu
+    public GameObject btnplay;
+    public GameObject configmenu;
+
+    //mutear musica
+    public GameObject musica;
+    public GameObject botonON;
+    public GameObject botonOFF;
+
     public bool guille = false;
     public int platatotal = 0;
-    
+    bool laputamadre;
     
     // Start is called before the first frame update
     void Start()
     {
         juego.SetActive(true);
         juego.SetActive(false);
+
+        //btnplay.transform.LeanMoveLocal(new Vector3(24, -150, 0), 3).setEaseInOutBack();
+      
+        btnplay.transform.LeanScale(new Vector3(0.8f, 0.8f, 0.8f), 1).setEaseLinear().setLoopPingPong();
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+       // platatotal = FindObjectOfType<ShopManagerScript>().coins;
+    
     }
     public void volvermenu()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         guille = true;
         FindObjectOfType<timer>().time = 60;
         FindObjectOfType<timer>().parartiempo = false;
         DestroyWithTag("bochitas");
+        DestroyWithTag3("dorada");
         fin.SetActive(false);
         juego.SetActive(false);
         tienda.SetActive(false);
-
+        config.SetActive(false);
+        pausamenu.SetActive(false);
+        Time.timeScale = 1;
+        laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);
         menupcipal.SetActive(true);
     }
     public void tiendaabrir()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         menupcipal.SetActive(false);
         tienda.SetActive(true);
     }
     public void empezar()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         FindObjectOfType<timer>().var = false;
         FindObjectOfType<diniero>().plata = 0;
         menupcipal.SetActive(false);
@@ -69,11 +114,11 @@ public class GameManager : MonoBehaviour
         laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);
         DestroyWithTag1("nuevabochita");
         DestroyWithTag2("efeto");
-        DestroyWithTag3("dorada");
+        
     }
     public void reset()
     {
-
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         FindObjectOfType<timer>().var = false;
         FindObjectOfType<diniero>().plata = 0;
@@ -82,11 +127,11 @@ public class GameManager : MonoBehaviour
         fin.SetActive(false);
         juego.SetActive(true);
         DestroyWithTag("bochitas");
-      
+        DestroyWithTag3("dorada");
         FindObjectOfType<ganerador>().nuevapieza();
-      
-        
-        
+        //laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 0.2f);
+
+
     }
     void DestroyWithTag(string bochitas)
     {
@@ -124,6 +169,15 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    public void configuracion()
+    {
+        config.SetActive(true);
+        menupcipal.SetActive(false);
+        configmenu.transform.LeanMoveLocal(new Vector3(-360, -724, -79), 1).setEaseInOutBack();
+    }
+
+
     public  void pausa()
     {
         pausamenu.SetActive(true);
@@ -137,4 +191,118 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    //conos
+    public void Cono1()
+    {
+        if (platatotal >=0)
+        {
+            cono1.SetActive(true);
+            cono2.SetActive(false);
+            cono3.SetActive(false);
+            cono4.SetActive(false);
+            cono5.SetActive(false);
+            
+
+        }
+    }
+
+    public void Cono2()
+    {
+        if (platatotal>=100)
+        {
+            cono1.SetActive(false);
+            cono2.SetActive(true);
+            cono3.SetActive(false);
+            cono4.SetActive(false);
+            cono5.SetActive(false);
+            txt1.SetActive(false);
+            botonselec1.SetActive(true);
+
+        }
+    }
+    public void Cono3()
+    {
+        if (platatotal >= 1700)
+        {
+            cono1.SetActive(false);
+            cono2.SetActive(false);
+            cono3.SetActive(true);
+            cono4.SetActive(false);
+            cono5.SetActive(false);
+            txt2.SetActive(false);
+            botonselec2.SetActive(true);
+        }
+    }
+    public void Cono4()
+    {
+        if (platatotal >= 4000)
+        {
+            cono1.SetActive(false);
+            cono2.SetActive(false);
+            cono3.SetActive(false);
+            cono4.SetActive(true);
+            cono5.SetActive(false);
+            txt3.SetActive(false);
+            botonselec3.SetActive(true);
+        }
+    }
+    public void Cono5()
+    {
+        if (platatotal >= 10000)
+        {
+            cono1.SetActive(false);
+            cono2.SetActive(false);
+            cono3.SetActive(false);
+            cono4.SetActive(false);
+            cono5.SetActive(true);
+            txt4.SetActive(false);
+            botonselec4.SetActive(true);
+        }
+    }
+  
+  
+    public void selecbtn1()
+    {
+        cono1.SetActive(false);
+        cono2.SetActive(true);
+        cono3.SetActive(false);
+        cono4.SetActive(false);
+        cono5.SetActive(false);
+    }
+    public void selecbtn2()
+    {
+        cono1.SetActive(false);
+        cono2.SetActive(false);
+        cono3.SetActive(true);
+        cono4.SetActive(false);
+        cono5.SetActive(false);
+    }
+    public void selecbtn3()
+    {
+        cono1.SetActive(false);
+        cono2.SetActive(false);
+        cono3.SetActive(false);
+        cono4.SetActive(true);
+        cono5.SetActive(false);
+    }
+    public void selecbtn4()
+    {
+        cono1.SetActive(false);
+        cono2.SetActive(false);
+        cono3.SetActive(false);
+        cono4.SetActive(false);
+        cono5.SetActive(true);
+    }
+    public void mutear()
+    {
+        musica.SetActive(false);
+        botonON.SetActive(false);
+        botonOFF.SetActive(true);
+    }
+    public void desmutear()
+    {
+        musica.SetActive(true);
+        botonON.SetActive(true);
+        botonOFF.SetActive(false);
+    }
 }

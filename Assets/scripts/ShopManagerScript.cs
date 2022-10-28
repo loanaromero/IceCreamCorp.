@@ -8,14 +8,16 @@ public class ShopManagerScript : MonoBehaviour
 {
 
     public int[,] shopItems = new int[5,5];
-    public float coins;
+    public int coins;
     public Text CoinsTXT;
+    public bool activar1=false;
+  
 
 
     void Start()
     {
         coins = FindObjectOfType<GameManager>().platatotal;
-        CoinsTXT.text = "platita: " + coins.ToString();
+        CoinsTXT.text =coins.ToString();
 
         //ID's
         shopItems[1, 1] = 1;
@@ -24,10 +26,10 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[1, 4] = 4;
 
         //Price
-        shopItems[2, 1] = 10;
-        shopItems[2, 2] = 20;
-        shopItems[2, 3] = 30;
-        shopItems[2, 4] = 40;
+        shopItems[2, 1] = 100;
+        shopItems[2, 2] = 1700;
+        shopItems[2, 3] = 4000;
+        shopItems[2, 4] = 10000;
 
         //Quantity
         shopItems[3, 1] = 0;
@@ -35,24 +37,28 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[3, 3] = 0;
         shopItems[3, 4] = 0;
 
+     
+       
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         coins = FindObjectOfType<GameManager>().platatotal;
-        CoinsTXT.text = "platita: " + coins.ToString();
+        CoinsTXT.text =coins.ToString();
+      
     }
     public void Buy()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-
-        if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
+        
+        if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID] )
         {
             FindObjectOfType<GameManager>().platatotal -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
-            shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+           // shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]= shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]+1;
+           
             CoinsTXT.text = "platita: " + coins.ToString();
-            ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-
+            // ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+         
         }
 
 
