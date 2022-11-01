@@ -114,6 +114,8 @@ MonoBehaviour:
   efeto: {fileID: 7319737459491991534, guid: f969ca7bfa3717c45ac03cb32aaed5ae, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
   pos: {x: 0, y: 0, z: 0}
+  numerito: {fileID: 8771156983670935692, guid: bdd8f5bd20a9a8a4c907dfd1fe9a17a0,
+    type: 3}
 --- !u!54 &1724846056476884879
 Rigidbody:
   m_ObjectHideFlags: 0

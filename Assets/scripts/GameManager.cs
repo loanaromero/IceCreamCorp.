@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
 
     //movimiento botones menu
     public GameObject btnplay;
-    public GameObject configmenu;
+    public GameObject movilcongif;
+    public GameObject moviltienda;
+    public GameObject movilfin;
 
     //mutear musica
     public GameObject musica;
@@ -52,9 +54,9 @@ public class GameManager : MonoBehaviour
     {
         juego.SetActive(true);
         juego.SetActive(false);
-
+        platatotal = PlayerPrefs.GetInt("plata");
         //btnplay.transform.LeanMoveLocal(new Vector3(24, -150, 0), 3).setEaseInOutBack();
-      
+
         btnplay.transform.LeanScale(new Vector3(0.8f, 0.8f, 0.8f), 1).setEaseLinear().setLoopPingPong();
 
     }
@@ -74,19 +76,27 @@ public class GameManager : MonoBehaviour
         DestroyWithTag("bochitas");
         DestroyWithTag3("dorada");
         fin.SetActive(false);
+        movilfin.transform.LeanMoveLocal(new Vector3(0, -1500, 0), 1).setEaseOutBack();
         juego.SetActive(false);
         tienda.SetActive(false);
         config.SetActive(false);
+        movilcongif.transform.LeanMoveLocal(new Vector3(-414, -2200, -92), 1).setEaseInOutBack();
+        moviltienda.transform.LeanMoveLocal(new Vector3(0, -2400, 0), 1).setEaseOutBack();
         pausamenu.SetActive(false);
+        platatotal = PlayerPrefs.GetInt("plata");
         Time.timeScale = 1;
         laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);
+        
         menupcipal.SetActive(true);
     }
     public void tiendaabrir()
     {
         SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
-        menupcipal.SetActive(false);
+        //menupcipal.SetActive(false);
         tienda.SetActive(true);
+        moviltienda.transform.LeanMoveLocal(new Vector3(0, 0, 0), 1).setEaseOutBack();
+        
+        
     }
     public void empezar()
     {
@@ -111,9 +121,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("saldo " + platatotal); 
         juego.SetActive(false);
         fin.SetActive(true);
+        movilfin.transform.LeanMoveLocal(new Vector3(0, 75, 0), 1).setEaseOutBack();
         laseer.transform.LeanMoveLocal(new Vector3(-4, 1.3f, 0), 2);
         DestroyWithTag1("nuevabochita");
         DestroyWithTag2("efeto");
+        PlayerPrefs.SetInt("plata", platatotal);
         
     }
     public void reset()
@@ -125,6 +137,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<timer>().time = 60;
         FindObjectOfType<timer>().parartiempo= false;
         fin.SetActive(false);
+        movilfin.transform.LeanMoveLocal(new Vector3(0, -1500, 0), 1).setEaseOutBack();
         juego.SetActive(true);
         DestroyWithTag("bochitas");
         DestroyWithTag3("dorada");
@@ -172,14 +185,16 @@ public class GameManager : MonoBehaviour
 
     public void configuracion()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         config.SetActive(true);
         menupcipal.SetActive(false);
-        configmenu.transform.LeanMoveLocal(new Vector3(-360, -724, -79), 1).setEaseInOutBack();
+        movilcongif.transform.LeanMoveLocal(new Vector3(-414, -776, -79), 1).setEaseOutBack();
     }
 
 
     public  void pausa()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         pausamenu.SetActive(true);
         Time.timeScale = 0;
         Debug.Log("entro");
@@ -187,6 +202,7 @@ public class GameManager : MonoBehaviour
     }
     public  void reanudar()
     {
+        SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.tap);
         pausamenu.SetActive(false);
             Time.timeScale = 1;
     }
@@ -305,4 +321,6 @@ public class GameManager : MonoBehaviour
         botonON.SetActive(true);
         botonOFF.SetActive(false);
     }
+
+    
 }

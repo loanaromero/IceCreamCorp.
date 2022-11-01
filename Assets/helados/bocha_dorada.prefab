@@ -129,9 +129,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r: 0
   cambiar: {x: 1, y: 0, z: 0}
-  efeto: {fileID: 6082788113044981917, guid: 764b7b47fb3e1a94984682f94982d5e6, type: 3}
+  efeto: {fileID: 7319737459491991534, guid: f969ca7bfa3717c45ac03cb32aaed5ae, type: 3}
   rot: {x: 0, y: 0, z: 0, w: 0}
   pos: {x: 0, y: 0, z: 0}
+  numerito: {fileID: 1000943965437417122, guid: 04ab982a19be75e4aa7df798a5c9b60d,
+    type: 3}
 --- !u!96 &4428084930659157075
 TrailRenderer:
   serializedVersion: 2

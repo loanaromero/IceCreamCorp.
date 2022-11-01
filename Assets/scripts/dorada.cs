@@ -13,12 +13,26 @@ public class dorada : MonoBehaviour
     public ContactPoint contato;
     public Quaternion rot;
     public Vector3 pos;
+    [SerializeField] GameObject numerito;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        int f = Random.Range(1, 3);
+        if (f == 1)
+        {
+            SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.dorada1);
+        }
+        else if(f==2)
+        {
+            SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.dorada2);
+        }
+        else
+        {
+            SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.dorada3);
+        }
+        
         r = Random.Range(500, 800);
 
         gameObject.tag = "nuevabochita";
@@ -67,7 +81,7 @@ public class dorada : MonoBehaviour
             pos = contato.point;
             Instantiate(efeto, pos, rot);
 
-
+            Destroy(Instantiate(numerito, new Vector3(pos.x, pos.y + 3, pos.z), rot), 1f);
             gameObject.tag = "dorada";
             gameObject.AddComponent<HingeJoint>();
             gameObject.GetComponent<HingeJoint>().connectedBody = collision.rigidbody;

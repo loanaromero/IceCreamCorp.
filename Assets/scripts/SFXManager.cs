@@ -7,7 +7,11 @@ public class SFXManager : MonoBehaviour
     public AudioSource Audio;
     public AudioClip tap;
     public AudioClip bomba;
-   
+    public AudioClip dorada1;
+    public AudioClip dorada2;
+    public AudioClip dorada3;
+    public AudioClip bomba1;
+    public AudioClip bomba2;
     public static SFXManager SFXinstancia;
     // Start is called before the first frame update
     private void Awake()

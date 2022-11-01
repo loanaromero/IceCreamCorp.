@@ -54,8 +54,8 @@ public class ShopManagerScript : MonoBehaviour
         if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID] )
         {
             FindObjectOfType<GameManager>().platatotal -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
-           // shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]= shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]+1;
-           
+            // shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]= shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]+1;
+            
             CoinsTXT.text = "platita: " + coins.ToString();
             // ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
          

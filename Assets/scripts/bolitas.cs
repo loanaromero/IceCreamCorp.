@@ -6,14 +6,14 @@ using System.Linq;
 
 public class bolitas : MonoBehaviour
 {
-    
+
     public float r;
     public Vector3 cambiar = Vector3.right;
     public GameObject efeto;
     public ContactPoint contato;
     public Quaternion rot;
     public Vector3 pos;
-  
+    [SerializeField] GameObject numerito;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +67,7 @@ public class bolitas : MonoBehaviour
             rot = Quaternion.FromToRotation(Vector3.up, contato.normal);
             pos = contato.point;
             Instantiate(efeto, pos, rot);
-                
+             Destroy(Instantiate(numerito,new Vector3(pos.x,pos.y+3,pos.z),rot), 1f) ;   
 
                 gameObject.tag = "bochitas";
                 gameObject.AddComponent<HingeJoint>();

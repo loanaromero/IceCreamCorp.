@@ -8,13 +8,17 @@ public class ganerador : MonoBehaviour
     public Vector3 pos1;
     public float y;
     public float x;
+    public GameObject juego;
     // Start is called before the first frame update
     void Start()
     {
+        if (juego.activeInHierarchy) 
+        {
         nuevapieza();
         cambio();
        
       pos1 = new Vector3(5.32f, y, 0);
+        }
     }
 
     // Update is called once per frame

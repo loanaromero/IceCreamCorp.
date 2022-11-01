@@ -23,7 +23,15 @@ public class bomba : MonoBehaviour
     void Start()
     {
         r = Random.Range(170, 500);
-
+        int f = Random.Range(1, 2);
+        if (f == 1)
+        {
+            SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.bomba1);
+        }
+        else 
+        {
+            SFXManager.SFXinstancia.Audio.PlayOneShot(SFXManager.SFXinstancia.bomba2);
+        }
         gameObject.tag = "nuevabochita";
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
         if (FindObjectOfType<ganerador>().cambio() == true)
